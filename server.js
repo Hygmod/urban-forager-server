@@ -9,6 +9,8 @@ const cors = require("cors")
 const corsOptions = require("./config/corsOptions")
 const connectDB = require("./config/dbConn")
 const mongoose = require("mongoose")
+const verifyJWT = require("./middleware/verifyJWT")
+
 const PORT = process.env.PORT || 3500
 
 connectDB()
@@ -26,6 +28,10 @@ app.use("/", express.static(path.join(__dirname, "public")))
 app.use("/", require("./routes/root"))
 app.use("/signup", require("./routes/signupRoutes"))
 app.use("/auth", require("./routes/authRoutes"))
+app.use("/refresh", require("./routes/refreshRoute"))
+app.use("/logout", require("./routes/logoutRoute"))
+
+app.use(verifyJWT) //protected routes below
 app.use("/markers", require("./routes/markerRoutes"))
 app.use("/users", require("./routes/userRoutes"))
 app.use("/notes", require("./routes/noteRoutes"))

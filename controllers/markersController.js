@@ -14,7 +14,6 @@ const getAllMarkers = asyncHandler(async (req, res) => {
 })
 
 const createNewMarker = asyncHandler(async (req, res) => {
-  // console.log(req.body)
   const lat = req.body.lat
   const lng = req.body.lng
   const markerType = req.body.markerType

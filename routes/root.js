@@ -5,7 +5,6 @@ const markersController = require("../controllers/markersController")
 
 // router.route("/").get(markersController.getAllMarkers)
 //                  .post(markersController.createNewMarker)
-// .patch(markersController.updateUser)
-// .delete(markersController.deleteUser)
+
 
 module.exports = router

@@ -15,11 +15,11 @@ const handleNewUser = async (req, res) => {
 
         ////////////////////////////////////////////////commented out so people can't create users
         ////////////////////////////////////////////////once user authorization is implemented, I may revisit this
-        //create and store the new user
-        // const result = await User.create({
-        //     "username": user,
-        //     "password": hashedPwd
-        // });
+        // create and store the new user
+        const result = await User.create({
+            "username": user,
+            "password": hashedPwd
+        });
 
         res.status(201).json({ 'success': `New user ${user} created!` });
     } catch (err) {
